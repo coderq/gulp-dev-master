@@ -11,7 +11,7 @@ var minifycss = require('gulp-minify-css');
 var minifyImage = require('gulp-imagemin');
 
 var color = gutil.colors;
-var prec, handler, starting;
+var prec, handler, starting, time = 0;
 var conf = {
     restart_time: 1500, // 文件变动后1.5秒重启node.js
     asset: './assets',
@@ -119,7 +119,7 @@ gulp.task('img', function () {
 
 gulp.task('start', function(cb) {
     prec = spawn('node', ['app.js']);
-    gutil.log('Process is started. Pid: %s', prec.pid);
+    gutil.log('Process is started. Time: %s. Pid: %s', color.green(++time), color.green(prec.pid));
     prec.stdout.on('data', function(data) {
         console.log(data.toString());
     });
