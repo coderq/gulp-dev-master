@@ -1,6 +1,6 @@
 # gulp-dev-master
 
 ```
-npm install --save-dev
+npm install
 gulp
 ```
