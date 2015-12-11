@@ -15,6 +15,10 @@ var prec, handler, starting;
 var conf = {
     restart_time: 1500, // 文件变动后1.5秒重启node.js
     asset: './assets',
+    controller: {
+        path: './controllers/',
+        file: '**/*.js'
+    },
     html: {
         path: './views/',
         file: '**/*.html'
@@ -147,7 +151,8 @@ gulp.task('watch', function() {
         conf.less.to.dist_path + conf.less.to.file, 
         conf.js.to.path + conf.js.to.file, 
         conf.img.to.path + conf.img.to.file, 
-        conf.html.path + conf.html.file
+        conf.html.path + conf.html.file,
+        conf.controller.path + conf.controller.file
     ], function() {
         if (starting) {
             gutil.log('Node is starting, please wait for a minute.');
