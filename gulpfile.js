@@ -10,10 +10,10 @@ var plumber = require('gulp-plumber');
 var minifycss = require('gulp-minify-css');
 var minifyImage = require('gulp-imagemin');
 
-var restart_time = 1500; // 文件变动后1.5秒重启node.js
 var color = gutil.colors;
 var prec, handler, starting;
 var conf = {
+    restart_time: 1500, // 文件变动后1.5秒重启node.js
     asset: './assets',
     html: {
         path: './views/',
@@ -165,7 +165,7 @@ gulp.task('watch', function() {
                     handler = null;
                 });
             });  
-        }, restart_time);
+        }, conf.restart_time);
     });
 });
 
